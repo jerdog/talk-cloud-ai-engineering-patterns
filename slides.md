@@ -1,16 +1,17 @@
 ---
 # try also 'default' to start simple
-theme: seriph
+theme: wwt
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: https://cover.sli.dev
 # some information about your slides (markdown enabled)
 title: Welcome to Slidev
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
+  ## Stop Dreaming, Start Engineering: Cloud Patterns for Production AI. Audience Takeaway.
 
-  Learn more at [Sli.dev](https://sli.dev)
+  Most AI projects never make it past the prototype stage because we treat them as magic instead of software. Moving from a "cool demo" to a production-grade system requires the same architectural rigor we've spent decades building for the cloud, while asking the same questions with a healthy level of skepticism, with new rules for non-deterministic code.
+
+  This talk will look at how AWS, GCP, and Azure have codified AI engineering, breaking down the patterns that actually work: from safe rollout strategies like shadow deployments to the shift from classic RAG to autonomous multi-agent loops. At the end we'll have a blueprint to work with that doesn't just "work on my machine", but scales, remains observable, while staying cost-effective in the real world.
 # apply UnoCSS classes to the current slide
 class: text-center
 # https://sli.dev/features/drawing

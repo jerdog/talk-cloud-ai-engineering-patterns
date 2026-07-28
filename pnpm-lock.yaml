@@ -20,6 +20,10 @@ importers:
       vue:
         specifier: ^3.5.33
         version: 3.5.40(typescript@6.0.3)
+    devDependencies:
+      slidev-theme-wwt:
+        specifier: github:jerdog/slidev-wwt-template
+        version: https://codeload.github.com/jerdog/slidev-wwt-template/tar.gz/d844e6c862d696c7e1b944acb2735e56cfb1a50f(@slidev/cli@52.18.0(@nuxt/kit@3.21.10)(@types/markdown-it@14.1.2)(@types/node@22.20.1)(@vue/compiler-sfc@3.5.40)(cac@7.0.0)(lightningcss@1.33.0)(markdown-it@14.3.0)(postcss@8.5.23)(rolldown@1.1.5)(srvx@0.12.4))(@slidev/types@52.18.0(@nuxt/kit@3.21.10)(@vue/compiler-sfc@3.5.40)(rolldown@1.1.5)(typescript@6.0.3)(vite@8.1.5(@types/node@22.20.1)(jiti@2.7.0)(yaml@2.9.0)))(vue@3.5.40(typescript@6.0.3))
 
 packages:
 
@@ -239,6 +243,12 @@ packages:
 
   '@floating-ui/utils@0.2.12':
     resolution: {integrity: sha512-HpCo8tmWzLVad5s2d19EhAz5zqrrQ6s69qd6moPMQvkOuSwDT1YgRfWSVuc4ennqrgv3OHppiOGMQ7oC13yIww==}
+
+  '@fontsource/inter@5.3.0':
+    resolution: {integrity: sha512-RofMylZmjlJEfELXeNHFWBRcSs75rGU/6bV2S2jfnvv/3rPXPGe0LgUJTklcHZ9lM4OZmAVFhcJPnACfb91A3g==}
+
+  '@formkit/auto-animate@0.9.0':
+    resolution: {integrity: sha512-VhP4zEAacXS3dfTpJpJ88QdLqMTcabMg0jwpOSxZ/VzfQVfl3GkZSCZThhGC5uhq/TxPHPzW0dzr4H9Bb1OgKA==}
 
   '@hono/node-server@1.19.17':
     resolution: {integrity: sha512-dSneS5qhiauZWGDCeK4o695Xd9nUNjviSZCMQrj10eetr8Uln1ucn6bbphOM6UynAMMtNIzZNSpL9vnASJwrPQ==}
@@ -2900,6 +2910,15 @@ packages:
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
+  slidev-theme-wwt@https://codeload.github.com/jerdog/slidev-wwt-template/tar.gz/d844e6c862d696c7e1b944acb2735e56cfb1a50f:
+    resolution: {gitHosted: true, integrity: sha512-i8MDb4e2vl/k8Xp5hJJxc7wRTFGrOB4jebrk+CTIoNABzAHRrOMA9bfg/zXtNfSNoik5nZws3Itx7WqCEq0Uwg==, tarball: https://codeload.github.com/jerdog/slidev-wwt-template/tar.gz/d844e6c862d696c7e1b944acb2735e56cfb1a50f}
+    version: 0.1.0
+    engines: {node: '>=20', pnpm: '>=9'}
+    peerDependencies:
+      '@slidev/cli': '>=0.49.0'
+      '@slidev/types': '>=0.49.0'
+      vue: '>=3.4.0'
+
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
@@ -3680,6 +3699,10 @@ snapshots:
       '@floating-ui/core': 1.8.0
 
   '@floating-ui/utils@0.2.12': {}
+
+  '@fontsource/inter@5.3.0': {}
+
+  '@formkit/auto-animate@0.9.0': {}
 
   '@hono/node-server@1.19.17(hono@4.12.32)':
     dependencies:
@@ -6868,6 +6891,14 @@ snapshots:
       totalist: 3.0.1
 
   sisteransi@1.0.5: {}
+
+  slidev-theme-wwt@https://codeload.github.com/jerdog/slidev-wwt-template/tar.gz/d844e6c862d696c7e1b944acb2735e56cfb1a50f(@slidev/cli@52.18.0(@nuxt/kit@3.21.10)(@types/markdown-it@14.1.2)(@types/node@22.20.1)(@vue/compiler-sfc@3.5.40)(cac@7.0.0)(lightningcss@1.33.0)(markdown-it@14.3.0)(postcss@8.5.23)(rolldown@1.1.5)(srvx@0.12.4))(@slidev/types@52.18.0(@nuxt/kit@3.21.10)(@vue/compiler-sfc@3.5.40)(rolldown@1.1.5)(typescript@6.0.3)(vite@8.1.5(@types/node@22.20.1)(jiti@2.7.0)(yaml@2.9.0)))(vue@3.5.40(typescript@6.0.3)):
+    dependencies:
+      '@fontsource/inter': 5.3.0
+      '@formkit/auto-animate': 0.9.0
+      '@slidev/cli': 52.18.0(@nuxt/kit@3.21.10)(@types/markdown-it@14.1.2)(@types/node@22.20.1)(@vue/compiler-sfc@3.5.40)(cac@7.0.0)(lightningcss@1.33.0)(markdown-it@14.3.0)(postcss@8.5.23)(rolldown@1.1.5)(srvx@0.12.4)
+      '@slidev/types': 52.18.0(@nuxt/kit@3.21.10)(@vue/compiler-sfc@3.5.40)(rolldown@1.1.5)(typescript@6.0.3)(vite@8.1.5(@types/node@22.20.1)(jiti@2.7.0)(yaml@2.9.0))
+      vue: 3.5.40(typescript@6.0.3)
 
   source-map-js@1.2.1: {}
 
