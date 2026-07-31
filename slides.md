@@ -39,7 +39,7 @@ layout: stats
 stats:
   - value: "80%+"
     label: "of AI projects fail — twice the rate of conventional IT"
-    caption: "RAND, 2024. 65 practitioner interviews."
+    caption: "RAND, 2024. 65 practitioner interviews — citing an outside estimate."
 ---
 
 <!--
@@ -189,6 +189,8 @@ title: "Convergence"
 </div>
 
 <p mt-8 text-center>All three arrived at the same six Well-Architected pillars — independently.</p>
+
+<p text-sm opacity-70 mt-4 text-center>AWS ML Lens · GCP AI/ML Framework · Azure Well-Architected AI workload guidance</p>
 
 <!--
 Hold 20s. Credibility beat for the entire talk. ANCHOR: "When three competitors converge on the same six pillars, that's not marketing. That's emerging engineering truth."
@@ -458,7 +460,7 @@ flowchart LR
 | | AWS | GCP | Azure |
 |---|---|---|---|
 | Collection & storage | S3 | Cloud Storage | Blob Storage |
-| Embedding & retrieval | OpenSearch | Vertex AI | Azure AI Search |
+| Embedding & retrieval | OpenSearch | Vertex AI (Agent Platform) | Azure AI Search |
 
 <!--
 Say: "Same shape everywhere. Different plumbing."
@@ -477,7 +479,7 @@ right:
   points:
     - "The same dev"
     - "One box: managed knowledge base"
-    - "Bedrock Managed KB · Foundry IQ · GCP RAG Engine"
+    - "Bedrock Managed KB (AWS Summit NY, Jun 2026) · Foundry IQ (Build 2026) · GCP RAG Engine"
 ---
 
 <!--
@@ -519,6 +521,8 @@ title: "The default has flipped"
 In 2026, agentic retrieval ships natively on all three clouds.
 
 Classic RAG is still the right answer more often than teams think.
+
+<p text-sm opacity-70 mt-6>Per each platform's current product docs — Bedrock, Foundry IQ, RAG Engine</p>
 
 <!--
 ANCHOR: "A surprising number of teams default to agentic because it sounds sophisticated, then wonder why latency is four seconds and the bill tripled."
@@ -654,13 +658,13 @@ stats:
     caption: "Anthropic's own figure, December 2025"
   - value: "5"
     label: "Vendors shipping native support"
-    caption: "OpenAI, Google, Microsoft, IBM, Amazon"
+    caption: "Per each vendor's own product announcements"
   - value: "Dec 2025"
     label: "Donated to the Agentic AI Foundation"
-    caption: "Under the Linux Foundation"
+    caption: "Anthropic's donation announcement, Dec 2025"
   - value: "07-28"
     label: "Largest spec revision since launch"
-    caption: "2026. Stateless core, OAuth alignment."
+    caption: "Per a third-party MCP version tracker, 2026"
 ---
 
 <!--
@@ -683,6 +687,8 @@ title: "Six orchestration patterns"
 <div><strong>Evaluator</strong><br>Quality-critical outputs</div>
 </div>
 
+<p text-sm opacity-70 mt-4>Magentic-One: Microsoft Research</p>
+
 <!--
 Hold 60s. "Read while I narrate" slide. Do not walk through each tile — narrate the meta-point.
 -->
@@ -698,7 +704,7 @@ title: "Runtime landscape, current state"
 <div>
 
 **AWS AgentCore**
-GA Oct 2025. Policy, Evaluations, and managed harness all GA June 17, 2026 (AWS Summit NY). Payments: announced, confirm status.
+GA Oct 2025. Policy, Evaluations, and managed harness all GA June 17, 2026 (AWS Summit NY). Payments (Coinbase, Stripe) announced.
 
 </div>
 <div>
@@ -716,6 +722,8 @@ Agent Framework 1.0 GA. Foundry Agent Service GA. Hosted Agents targeted GA earl
 </div>
 
 <p mt-8 text-center><strong>All three are GA. Pick on other criteria.</strong></p>
+
+<p text-sm opacity-70 mt-2 text-center>AWS Summit New York, June 2026 · Google Cloud Next '26 · Microsoft Build 2026</p>
 
 <!--
 AWS Bedrock AgentCore went GA in October 2025. AgentCore Policy, AgentCore Evaluations, and the managed harness all reached GA at AWS Summit New York on June 17, 2026. It's framework-agnostic — bring your LangGraph, CrewAI, Claude Agent SDK, custom Python. Policies are written in Cedar and run outside your agent code. AWS has also talked publicly about AgentCore Payments — Coinbase and Stripe integration — but double-check the exact GA status closer to your delivery date, since it hasn't been independently reconfirmed. GCP's Gemini Enterprise Agent Platform was announced at Cloud Next in late April 2026; Vertex AI as a standalone brand was retired, its capabilities folded in as sub-features. Microsoft Agent Framework 1.0 went GA in April, consolidating Semantic Kernel and AutoGen. Foundry Agent Service is GA. Hosted agents were a target, not a confirmed shipment, as of Build 2026 — say "targeted for" unless you can confirm the actual GA announcement closer to delivery. Bottom line: all three are GA. Pick on other criteria.
@@ -736,6 +744,8 @@ title: "Cross-vendor reality"
 | Open models | everywhere | everywhere | everywhere |
 
 <p mt-6 opacity-80>The frontier models have converged closely on most public benchmarks. The platform gap on governance is the more durable one.</p>
+
+<p text-sm opacity-70 mt-2>Claude on Microsoft Foundry: Microsoft & Anthropic, June 29, 2026</p>
 
 <!--
 Claude went GA on Microsoft Foundry June 29, 2026 — confirmed by Microsoft's own devblog and Anthropic's announcement. Say: "Look at what's now true. Claude runs on all three. GPT is increasingly cross-platform. Gemini's in Model Garden. LangGraph and CrewAI run on every platform. MCP tools work across all runtimes. The patterns are portable. The models are portable. The tools are portable. So what's left? Governance. Identity. Data gravity. That's what actually differentiates the platforms now."
@@ -765,6 +775,8 @@ Two agents, different organizations, talking directly.
 - **AP2** — agent payments
 
 Watch this space.
+
+<p text-sm opacity-70 mt-4>A2A and AP2: Google, open protocols</p>
 
 <!--
 CUT CANDIDATE — drop without losing the argument. "If you're building anything that crosses org boundaries, these are the standards to track."
@@ -812,9 +824,11 @@ gen_ai.tool.name: "search_knowledge_base"
 gen_ai.server.time_to_first_token: 0.312
 ```
 
-Datadog · Honeycomb · Grafana · New Relic · LangChain · CrewAI · AutoGen · AG2 · Microsoft
+Datadog · Honeycomb · Grafana · LangChain · CrewAI · AutoGen
 
 **The de facto standard. Not yet formally Stable.**
+
+<p text-sm opacity-70>As of July 2026 — OpenTelemetry GenAI semantic conventions, Development status</p>
 
 <!--
 ANCHOR: "Real and worth adopting. Not yet finished." No GenAI span, event, metric, or attribute is marked Stable — the conventions moved to their own dedicated repository in 2026 and remain in Development status there, meaning the schema itself is still allowed to change. What is true: broad practical tooling support exists today. That combination — adopt early, expect some churn — is exactly the position most emerging infrastructure standards go through on the way to boring. "If your platform doesn't emit these, you're locking in a vendor. Ask before you commit."
@@ -834,7 +848,7 @@ right:
     - "No cap"
     - "78% of companies run 2+ LLM families"
     - "3+ jumped from 36% to 59% in one quarter"
-    - "Databricks, State of AI Agents 2026"
+    - "— Databricks, State of AI Agents 2026"
 ---
 
 <!--

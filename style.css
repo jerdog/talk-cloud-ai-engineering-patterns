@@ -1,0 +1,7 @@
+/* The WWT theme renders the small monogram mark twice per slide: once top-left
+   (repeated per layout via .wwt-monogram-mark) and once bottom-left, inside
+   Footer.vue, where it additionally carries .wwt-footer__monogram. This keeps
+   only the bottom-left instance. */
+.wwt-monogram-mark:not(.wwt-footer__monogram) {
+  display: none;
+}

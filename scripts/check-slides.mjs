@@ -75,6 +75,9 @@ const CHECKS = {
     fm.stats.forEach((s, i) => {
       if (!isNonEmptyString(s?.value)) fail(slide, `stats: stats[${i}].value is missing or empty`)
       if (!isNonEmptyString(s?.label)) fail(slide, `stats: stats[${i}].label is missing or empty`)
+      // Every stat is a claim from somewhere — caption is where its source lives.
+      // Enforced so a future stat can't land on-screen without one.
+      if (!isNonEmptyString(s?.caption)) fail(slide, `stats: stats[${i}].caption is missing or empty — every stat needs a visible source`)
     })
   },
   timeline(fm, slide) {
