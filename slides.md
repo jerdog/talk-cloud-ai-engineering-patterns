@@ -8,9 +8,9 @@ presenterRole: "Tech Solution Architect"
 info: |
   ## Stop Dreaming, Start Engineering: Cloud Patterns for Production AI. Audience Takeaway.
 
-  Most AI projects never make it past the prototype stage because we treat them as magic instead of software. Moving from a "cool demo" to a production-grade system requires the same architectural rigor we've spent decades building for the cloud, while asking the same questions with a healthy level of skepticism, with new rules for non-deterministic code.
+  Most AI projects never make it past the prototype stage because we treat them as magic instead of software. Moving from a "cool demo" to a production-grade system takes the same architectural rigor we've spent decades building for the cloud. The code just runs by new rules — non-deterministic, data-dependent, drifting over time.
 
-  This talk will look at how AWS, GCP, and Azure have codified AI engineering, breaking down the patterns that actually work: from safe rollout strategies like shadow deployments to the shift from classic RAG to autonomous multi-agent loops. At the end we'll have a blueprint to work with that doesn't just "work on my machine", but scales, remains observable, while staying cost-effective in the real world.
+  AWS, GCP, and Azure have converged on how to solve this. This talk breaks down the patterns that actually work: safe rollout strategies like shadow deployments, the shift from classic RAG to autonomous multi-agent loops, and the identity and observability models that make it enterprise-ready. You'll leave with a blueprint that doesn't just work on your machine — it scales, stays observable, and holds up cost-effectively in the real world.
 drawings:
   persist: false
 transition: slide-left
@@ -37,32 +37,29 @@ Hold 20-30s. Wait for hands. Emotional entry point. "Yeah. Me too. More than onc
 ---
 layout: stats
 stats:
-  - value: "80.3%"
-    label: "Failure rate of enterprise AI initiatives"
-    caption: "RAND, 2024 meta-analysis, n = 2,400+"
+  - value: "80%+"
+    label: "of AI projects fail — twice the rate of conventional IT"
+    caption: "RAND, 2024. 65 practitioner interviews."
 ---
 
 <!--
-Hold 30s. Say the number slow, then repeat it once. Don't editorialize — the number does the work.
+Hold 30s. Say the number slow, then repeat it once. Don't editorialize — the number does the work. If challenged on precision: this is qualitative research, 65 experienced practitioners interviewed, and RAND itself is citing "by some estimates" — not a number RAND computed from a large sample. Round numbers from real methodology beat fake precision.
 -->
 
 ---
 layout: stats
-title: "Where the 80.3% comes from"
+title: "Two more studies"
 stats:
-  - value: "33.8%"
-    label: "Abandoned before production"
-    caption: "RAND, 2024"
-  - value: "28.4%"
-    label: "Ship but deliver no value"
-    caption: "RAND, 2024"
-  - value: "18.1%"
-    label: "Run but never recoup cost"
-    caption: "RAND, 2024"
+  - value: "95%"
+    label: "of GenAI pilots show no measurable P&L return"
+    caption: "MIT Project NANDA, 2025. Preliminary, not peer-reviewed."
+  - value: "28%"
+    label: "of AI use cases in infrastructure & operations meet ROI expectations"
+    caption: "Gartner, April 2026. 782 I&O leaders."
 ---
 
 <!--
-Hold 45s. Credibility beat. Also cite: MIT NANDA — 95% of GenAI pilots deliver no measurable P&L return. Gartner (Apr 2026) — only 28% of AI infrastructure projects deliver promised ROI. "Three independent studies, same conclusion." CUT CANDIDATE if pacing runs long — slide 3 alone carries the number.
+Hold 45s. Credibility beat. NANDA's report is explicitly preliminary and hasn't been peer-reviewed — worth flagging if anyone asks. Gartner's 28% is scoped specifically to infrastructure & operations use cases, not enterprise AI broadly — keep that scope precise. "Three independent studies, same conclusion." CUT CANDIDATE if pacing runs long — slide 3 alone carries the number.
 -->
 
 ---
@@ -96,6 +93,21 @@ AI is software with new rules.
 
 <!--
 No decoration. Say the line. Pause. This is the throughline for everything after: non-deterministic output, data-dependent behavior, model drift, an inverted cost model.
+-->
+
+---
+layout: agenda
+items:
+  - "The prototype graveyard"
+  - "Lifecycle, Well-Architected, regulation"
+  - "Shipping non-deterministic code"
+  - "Grounding models in your data"
+  - "Agents, and the protocol that made them portable"
+  - "Identity, observability, cost"
+---
+
+<!--
+Over the next 35 minutes: the lifecycle and where regulation now fits into it, safe rollout strategies that account for non-determinism, the shift from classic RAG to managed knowledge planes, multi-agent orchestration and the protocol (MCP) that made it interoperable, and the identity, observability, and compliance model that makes any of this work in an enterprise. You'll leave with a blueprint you can take back Monday morning.
 -->
 
 ---
@@ -134,11 +146,11 @@ events:
     label: "Which vector database?"
   - date: "Month 6"
     label: "Nobody mentions complaints anymore"
-    detail: "Deloitte, State of AI in the Enterprise 2026"
+    detail: "One of RAND's five root causes: stakeholders miscommunicating the problem"
 ---
 
 <!--
-Hold 30s. Uncomfortable laughs land here. That's the point — this is how a third of AI projects die before they ever ship.
+Hold 30s. Uncomfortable laughs land here. That's the point.
 -->
 
 ---
@@ -198,26 +210,35 @@ layout: default
 title: "The clock"
 ---
 
-# August 2, 2026
+# The EU AI Act. Two dates, not one.
 
-## EU AI Act. Full enforcement.
+<div grid="~ cols-2 gap-8" mt-6>
+<div>
 
-**Fines up to €35M or 7% of global revenue.**
-
-<v-clicks>
-
+**August 2, 2026**
 - Article 50 transparency obligations
-- GPAI compliance
-- Data lineage
-- Human-in-the-loop for high-risk systems
-- Risk classification tags
+- GPAI penalty powers
+- Fines up to €15M or 3% of global revenue
 
-</v-clicks>
+Enforceable <WeeksSince date="2026-08-02" />
 
-<p text-sm opacity-70>Source: EU AI Act (Regulation (EU) 2024/1689)</p>
+</div>
+<div>
+
+**December 2, 2027**
+- High-risk regime
+- Human-in-the-loop checkpoints
+- Risk classification, conformity assessment
+
+Delayed 16 months — Digital Omnibus, May 2026
+
+</div>
+</div>
+
+<p text-sm opacity-70 mt-8>Source: EU AI Act (Regulation (EU) 2024/1689); Digital Omnibus package, May 2026</p>
 
 <!--
-Delivery variant if pre-Aug 2: "For most of you, that's next week." Post-Aug 2 variant: "Enforcement began [N] weeks ago." Know one real enforcement case to reference if delivering after the date.
+The deadline is real, it's just narrower than the headlines made it sound — and the big one just moved. €35M/7% is real too, but it's the Act's top tier, reserved for prohibited practices, not the transparency rules landing here. Human-in-the-loop and risk classification got sixteen months of runway via the Digital Omnibus — that's not a reason to ignore them, it's more time to build them properly instead of bolting them on under deadline pressure. Know one real Article 50 enforcement case to reference.
 -->
 
 ---
@@ -243,6 +264,7 @@ CUT CANDIDATE — slide 12 does most of the work.
 layout: section
 number: "03"
 title: "Shipping non-deterministic code"
+hide: true
 ---
 
 <!--
@@ -302,7 +324,7 @@ flowchart LR
     U[User request] --> P[Production model]
     P --> Resp[Response returned]
     U -.mirror.-> S[Shadow model]
-    S -.-> L[(Logged & compared,\nnever returned)]
+    S -.-> L[("Logged & compared<br/>never returned")]
 ```
 
 </div>
@@ -356,7 +378,7 @@ flowchart LR
 
 </div>
 
-<p text-sm opacity-70 mt-4>AgentCore Evaluations (GA March 2026) · Foundry trace-based evaluation · Agent Evaluation on Agent Platform</p>
+<p text-sm opacity-70 mt-4>AgentCore Evaluations (GA June 17, 2026, AWS Summit New York) · Foundry trace-based evaluation · Agent Evaluation on Agent Platform</p>
 
 <!--
 CUT CANDIDATE — nice-to-have callout, not core. Say: "Your shadow observations become your eval set. Automatically."
@@ -391,6 +413,7 @@ Section landing.
 layout: section
 number: "04"
 title: "Grounding models in your data"
+hide: true
 ---
 
 ---
@@ -526,6 +549,7 @@ Section landing.
 layout: section
 number: "05"
 title: "Agents. And the protocol that made them portable."
+hide: true
 ---
 
 <!--
@@ -625,23 +649,22 @@ graph TD
 layout: stats
 title: "MCP: the numbers"
 stats:
-  - value: "97M"
-    label: "Monthly SDK downloads"
-    caption: "March 2026"
+  - value: "10,000+"
+    label: "Public MCP servers"
+    caption: "Anthropic's own figure, December 2025"
   - value: "5"
-    label: "Native hyperscaler support"
+    label: "Vendors shipping native support"
     caption: "OpenAI, Google, Microsoft, IBM, Amazon"
-  - value: "~28%"
-    label: "Of Fortune 500 in production"
-    caption: "Conservative estimate"
+  - value: "Dec 2025"
+    label: "Donated to the Agentic AI Foundation"
+    caption: "Under the Linux Foundation"
   - value: "07-28"
-    label: "Spec revision"
-    caption: "2026, landing this week"
+    label: "Largest spec revision since launch"
+    caption: "2026. Stateless core, OAuth alignment."
 ---
 
 <!--
-ANCHOR: "Tools are portable now. That's the new thing." Also: "970x growth in eighteen months." Read the numbers cleanly, don't editorialize.
-NEEDS SOURCE: the 97M downloads and ~28% Fortune 500 figures have no named source in the outline this deck was built from (speaker-notes.md hedges with "according to the most conservative estimates" but doesn't name one). Confirm and cite before presenting, or soften to a range.
+ANCHOR: "Tools are portable now. That's the new thing." Read the numbers cleanly, don't editorialize. You'll see bigger numbers floating around online — download counts in the tens of millions, Fortune 500 adoption anywhere from 28 to 80 percent depending which blog you land on. Treat those skeptically; nobody's independently measuring this well yet, and the spread between sources tells you that. What's not in dispute is the vendor list and the governance move to the Linux Foundation. That's the real signal.
 -->
 
 ---
@@ -675,7 +698,7 @@ title: "Runtime landscape, current state"
 <div>
 
 **AWS AgentCore**
-GA Oct 2025. Policy GA. Evaluations GA. Payments preview.
+GA Oct 2025. Policy, Evaluations, and managed harness all GA June 17, 2026 (AWS Summit NY). Payments: announced, confirm status.
 
 </div>
 <div>
@@ -687,12 +710,16 @@ Announced Cloud Next '26. Vertex retired. Skill Registry. Memory Bank profiles G
 <div>
 
 **Microsoft Foundry**
-Agent Framework 1.0 GA. Foundry Agent Service GA. Hosted Agents GA. M365 publishing.
+Agent Framework 1.0 GA. Foundry Agent Service GA. Hosted Agents targeted GA early July 2026. M365 publishing.
 
 </div>
 </div>
 
 <p mt-8 text-center><strong>All three are GA. Pick on other criteria.</strong></p>
+
+<!--
+AWS Bedrock AgentCore went GA in October 2025. AgentCore Policy, AgentCore Evaluations, and the managed harness all reached GA at AWS Summit New York on June 17, 2026. It's framework-agnostic — bring your LangGraph, CrewAI, Claude Agent SDK, custom Python. Policies are written in Cedar and run outside your agent code. AWS has also talked publicly about AgentCore Payments — Coinbase and Stripe integration — but double-check the exact GA status closer to your delivery date, since it hasn't been independently reconfirmed. GCP's Gemini Enterprise Agent Platform was announced at Cloud Next in late April 2026; Vertex AI as a standalone brand was retired, its capabilities folded in as sub-features. Microsoft Agent Framework 1.0 went GA in April, consolidating Semantic Kernel and AutoGen. Foundry Agent Service is GA. Hosted agents were a target, not a confirmed shipment, as of Build 2026 — say "targeted for" unless you can confirm the actual GA announcement closer to delivery. Bottom line: all three are GA. Pick on other criteria.
+-->
 
 ---
 layout: default
@@ -703,14 +730,16 @@ title: "Cross-vendor reality"
 
 | Model | AWS | GCP | Azure |
 |---|---|---|---|
-| Claude | available | available | available |
-| GPT | | | primary, expanding |
+| Claude | native, Bedrock | available, Model Garden | GA June 29, 2026 |
+| GPT | increasingly available | | primary, expanding |
 | Gemini | | primary | cross-cloud emerging |
 | Open models | everywhere | everywhere | everywhere |
 
-<p mt-6 opacity-80>The frontier model performance gap is 5–15%. The platform gap on governance is much larger.</p>
+<p mt-6 opacity-80>The frontier models have converged closely on most public benchmarks. The platform gap on governance is the more durable one.</p>
 
-<!-- NEEDS SOURCE: the 5-15% model-performance-gap figure has no named source in the outline (asserted as fact in anchor-lines.md/talk-outline.md). Confirm which benchmark(s) this is drawn from before presenting — it repeats on slide 44. -->
+<!--
+Claude went GA on Microsoft Foundry June 29, 2026 — confirmed by Microsoft's own devblog and Anthropic's announcement. Say: "Look at what's now true. Claude runs on all three. GPT is increasingly cross-platform. Gemini's in Model Garden. LangGraph and CrewAI run on every platform. MCP tools work across all runtimes. The patterns are portable. The models are portable. The tools are portable. So what's left? Governance. Identity. Data gravity. That's what actually differentiates the platforms now."
+-->
 
 ---
 layout: quote
@@ -745,6 +774,7 @@ CUT CANDIDATE — drop without losing the argument. "If you're building anything
 layout: section
 number: "06"
 title: "The part that determines your platform choice"
+hide: true
 ---
 
 ---
@@ -782,12 +812,12 @@ gen_ai.tool.name: "search_knowledge_base"
 gen_ai.server.time_to_first_token: 0.312
 ```
 
-Datadog · Honeycomb · New Relic · LangChain · CrewAI · AutoGen · AG2 · Microsoft
+Datadog · Honeycomb · Grafana · New Relic · LangChain · CrewAI · AutoGen · AG2 · Microsoft
 
-**The `gen_ai.*` schema won.**
+**The de facto standard. Not yet formally Stable.**
 
 <!--
-ANCHOR: "If your platform doesn't emit these, you're locking in a vendor. Ask before you commit." For the first time, agent observability is vendor-neutral.
+ANCHOR: "Real and worth adopting. Not yet finished." No GenAI span, event, metric, or attribute is marked Stable — the conventions moved to their own dedicated repository in 2026 and remain in Development status there, meaning the schema itself is still allowed to change. What is true: broad practical tooling support exists today. That combination — adopt early, expect some churn — is exactly the position most emerging infrastructure standards go through on the way to boring. "If your platform doesn't emit these, you're locking in a vendor. Ask before you commit."
 -->
 
 ---
@@ -802,12 +832,13 @@ right:
   points:
     - "Linear with usage"
     - "No cap"
-    - "Average enterprise: 4+ distinct LLMs in production"
+    - "78% of companies run 2+ LLM families"
+    - "3+ jumped from 36% to 59% in one quarter"
+    - "Databricks, State of AI Agents 2026"
 ---
 
 <!--
 CUT CANDIDATE — cost is real but well-understood. "Latency-aware routing between cheap and smart isn't optimization. It's table stakes."
-NEEDS SOURCE: "4+ distinct LLMs in production" has no named source in the outline. Confirm before presenting.
 -->
 
 ---
@@ -818,8 +849,7 @@ dark: true
 Platform choice matters more than model choice.
 
 <!--
-Sub-text (spoken, not shown): frontier model gap 5-15%. Platform gap on governance and compliance, much larger.
-NEEDS SOURCE: same unattributed 5-15% figure as slide 37 — see that slide's flag.
+Sub-text (spoken, not shown): the frontier models have converged closely on most public benchmarks — I don't have a clean, rigorously sourced number for exactly how close, so say it directional, not as a stat to repeat verbatim. Platform gaps on governance, compliance, and integration are the ones I'd bet money are larger and more durable.
 -->
 
 ---
@@ -840,7 +870,7 @@ title: "The nine questions"
 <div flex="~ col" gap-4>
 <div flex gap-3><strong style="color: var(--wwt-primary-base)">6.</strong> Can your agent ever see data its user can't? Structurally, not policy?</div>
 <div flex gap-3><strong style="color: var(--wwt-primary-base)">7.</strong> Are you emitting OpenTelemetry GenAI conventions?</div>
-<div flex gap-3><strong style="color: var(--wwt-primary-base)">8.</strong> Article 50 ready by August 2?</div>
+<div flex gap-3><strong style="color: var(--wwt-primary-base)">8.</strong> Article 50 enforceable <WeeksSince date="2026-08-02" /> — are you ready?</div>
 <div flex gap-3><strong style="color: var(--wwt-primary-base)">9.</strong> Do you know your per-inference cost and have a routing strategy?</div>
 </div>
 </div>
@@ -890,3 +920,7 @@ Keep this on screen for the full Q&A. Anticipated questions:
 - What if I'm not in Europe? Still matters if you have European users or data; US state-level regulation is following the same patterns.
 - How do I convince leadership to invest? RAND, MIT NANDA, and Gartner all agree — the 80% failure rate is a leadership problem more than a technical one.
 -->
+
+---
+layout: end
+---
