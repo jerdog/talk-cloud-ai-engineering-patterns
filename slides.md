@@ -3,7 +3,7 @@ theme: wwt
 layout: cover
 title: "Stop Dreaming, Start Engineering"
 subtitle: "Cloud Patterns for Production AI"
-presenter: "Jeremy Meiss"
+presenterName: "Jeremy Meiss"
 presenterRole: "Tech Solution Architect"
 info: |
   ## Stop Dreaming, Start Engineering: Cloud Patterns for Production AI. Audience Takeaway.
