@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 // Guards against a slide silently rendering blank.
 //
-// The WWT theme's layouts (comparison, stats, timeline, process, agenda,
-// image-full, image-feature) read their content entirely from frontmatter and
-// render whatever they find — an empty or malformed field produces the
-// layout's chrome with nothing inside it, with no error from Slidev or Vue.
+// The WWT theme's layouts (comparison, boxes, stats, timeline, process,
+// agenda, demo, image-full, image-feature, thank-you, team, speaker,
+// customer-quote) read their content entirely from frontmatter and render
+// whatever they find — an empty or malformed field produces the layout's
+// chrome with nothing inside it, with no error from Slidev or Vue.
 // The most likely cause is an editor's Markdown formatter (Prettier or
 // similar) reflowing the nested YAML these layouts depend on: it turns a
 // `points:` list into an inline string rather than removing the key, which a
@@ -67,6 +68,15 @@ const CHECKS = {
       }
     }
   },
+  boxes(fm, slide) {
+    if (!isNonEmptyArray(fm.boxes)) {
+      fail(slide, `boxes: "boxes" must be a non-empty list (got ${typeof fm.boxes})`)
+      return
+    }
+    fm.boxes.forEach((b, i) => {
+      if (!isNonEmptyString(b?.title)) fail(slide, `boxes: boxes[${i}].title is missing or empty`)
+    })
+  },
   stats(fm, slide) {
     if (!isNonEmptyArray(fm.stats)) {
       fail(slide, `stats: "stats" must be a non-empty list (got ${typeof fm.stats})`)
@@ -104,8 +114,44 @@ const CHECKS = {
       fail(slide, `agenda: "items" must be a non-empty list (got ${typeof fm.items})`)
     }
   },
+  demo(fm, slide) {
+    if (!isNonEmptyString(fm.src)) fail(slide, 'demo: missing "src"')
+  },
   'image-full': checkImageSlide,
   'image-feature': checkImageSlide,
+  'thank-you'(fm, slide) {
+    if (!isNonEmptyArray(fm.speakers)) {
+      fail(slide, `thank-you: "speakers" must be a non-empty list (got ${typeof fm.speakers})`)
+      return
+    }
+    fm.speakers.forEach((s, i) => {
+      if (!isNonEmptyString(s?.name)) fail(slide, `thank-you: speakers[${i}].name is missing or empty`)
+    })
+  },
+  team(fm, slide) {
+    if (!isNonEmptyArray(fm.members)) {
+      fail(slide, `team: "members" must be a non-empty list (got ${typeof fm.members})`)
+      return
+    }
+    fm.members.forEach((m, i) => {
+      if (!isNonEmptyString(m?.name)) fail(slide, `team: members[${i}].name is missing or empty`)
+      if (!isNonEmptyString(m?.role)) fail(slide, `team: members[${i}].role is missing or empty`)
+    })
+  },
+  speaker(fm, slide) {
+    if (!isNonEmptyArray(fm.speakers)) {
+      fail(slide, `speaker: "speakers" must be a non-empty list (got ${typeof fm.speakers})`)
+      return
+    }
+    fm.speakers.forEach((s, i) => {
+      if (!isNonEmptyString(s?.name)) fail(slide, `speaker: speakers[${i}].name is missing or empty`)
+    })
+  },
+  'customer-quote'(fm, slide) {
+    if (!isNonEmptyString(fm.quote)) fail(slide, 'customer-quote: missing "quote"')
+    if (!isNonEmptyString(fm.name)) fail(slide, 'customer-quote: missing "name"')
+    if (!isNonEmptyString(fm.role)) fail(slide, 'customer-quote: missing "role"')
+  },
 }
 
 function checkImageSlide(fm, slide) {
@@ -113,10 +159,9 @@ function checkImageSlide(fm, slide) {
   if (!isNonEmptyString(fm.imageAlt)) fail(slide, `${fm.layout}: missing "imageAlt" (accessibility requirement, not just a rendering one)`)
 }
 
-// Everything else (default, quote, code-focus, two-cols, customer-quote,
-// demo, team, ...) renders a <slot/> — its content lives in the markdown
-// body, not frontmatter, so the one thing that can go silently missing is
-// the body itself.
+// Everything else (default, quote, code-focus, two-cols, ...) renders a
+// <slot/> — its content lives in the markdown body, not frontmatter, so
+// the one thing that can go silently missing is the body itself.
 function checkSlotBody(fm, slide) {
   if (slide.content.trim().length === 0) {
     fail(slide, `${fm.layout ?? 'default'}: slide body is empty`)
