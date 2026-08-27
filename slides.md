@@ -15,7 +15,7 @@ drawings:
   persist: false
 transition: slide-left
 comark: true
-duration: 35min
+duration: 45min
 colorSchema: dark
 ---
 
