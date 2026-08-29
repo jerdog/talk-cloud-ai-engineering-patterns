@@ -282,7 +282,7 @@ And it isn't just Europe. NIST AI RMF is the de facto US federal standard. ISO/I
 ---
 # DELIVERY: Hold 5s. Move on.
 layout: section
-number: "03"
+number: ""
 title: "Shipping non-deterministic code"
 hide: true
 ---
@@ -435,7 +435,7 @@ Safe rollout assumes you know what good looks like. For generative AI, defining 
 
 ---
 layout: section
-number: "04"
+number: ""
 title: "Grounding models in your data"
 hide: true
 ---
@@ -615,7 +615,7 @@ Good natural pause point for a question if the room seems unsure. Better to reso
 ---
 # DELIVERY: Densest section of the talk. Do not rush.
 layout: section
-number: "05"
+number: ""
 title: "Agents. And the protocol that made them portable."
 hide: true
 ---
@@ -866,7 +866,7 @@ Just as MCP handles agent-to-tool communication, Google's open Agent-to-Agent pr
 ---
 # DELIVERY: OWASP over-permissioning callout belongs here — lead with it before the two identity patterns.
 layout: section
-number: "06"
+number: ""
 title: "The part that determines your platform choice"
 hide: true
 ---
