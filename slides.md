@@ -155,7 +155,7 @@ Every cloud provider has now published an AI-specific lens on top of their Well-
 ---
 # DELIVERY: Hold 5s. Move on.
 layout: section
-number: "01"
+number: ""
 title: "Shipping non-deterministic code"
 ---
 
@@ -283,7 +283,7 @@ Safe rollout gets one model into production safely. But that's not actually what
 ---
 # DELIVERY: Densest section of the talk. Do not rush.
 layout: section
-number: "02"
+number: ""
 title: "The protocol that made agents portable"
 ---
 
@@ -444,7 +444,7 @@ The models, the tools, and the orchestration patterns are portable across all th
 ---
 # DELIVERY: OWASP over-permissioning callout belongs here - lead with it before the two identity patterns.
 layout: section
-number: "03"
+number: ""
 title: "The part that determines your platform choice"
 ---
 
