@@ -10,23 +10,31 @@ theme: wwt
 # PACING: Running long? Cut valve, in order: the Azure template slide, then the
 # six orchestration patterns, then the runtime landscape slide.
 # DELIVERY: Don't read these notes verbatim on stage - they're scaffolding. The talk should sound like you, not like a script.
-layout: cover
 title: "Stop Dreaming, Start Engineering"
 subtitle: "Cloud Patterns for Production AI"
-presenterName: "Jeremy Meiss"
-presenterRole: "Tech Solution Architect"
 info: |
   ## Stop Dreaming, Start Engineering: Cloud Patterns for Production AI. Audience Takeaway.
 
-  Most AI projects never make it past the prototype stage because we treat them as magic instead of software. Moving from a "cool demo" to a production-grade system takes the same architectural rigor we've spent decades building for the cloud. The code just runs by new rules - non-deterministic, data-dependent, drifting over time.
+  Most AI projects never make it past the prototype stage because we treat them as magic instead of software. Moving from a "cool demo" to a production-grade system takes the same architectural rigor we've spent decades building for the cloud. The code just runs by new rules — non-deterministic, data-dependent, drifting over time.
 
-  AWS, GCP, and Azure have converged on how to solve this. This talk breaks down the patterns that actually work: safe rollout strategies like shadow deployments, the rise of autonomous multi-agent loops built on MCP, and the identity and observability models that make it enterprise-ready. You'll leave with a blueprint that doesn't just work on your machine - it scales, stays observable, and holds up cost-effectively in the real world.
+  AWS, GCP, and Azure have converged on how to solve this. This talk breaks down the patterns that actually work: safe rollout strategies like shadow deployments, the shift from classic RAG to autonomous multi-agent loops, and the identity and observability models that make it enterprise-ready. You'll leave with a blueprint that doesn't just work on your machine — it scales, stays observable, and holds up cost-effectively in the real world.
+presenterName: "Jeremy Meiss"
+presenterRole: "Tech Solution Architect"
+titleTemplate: '%s - Slidev'
+exportFilename: "slides_stop-dreaming-start-engineering-cloud-patterns-prod-ai.pdf"
+presenter: true
+layout: cover
 drawings:
   persist: false
-transition: slide-left
+fonts:
+  sans: Inter
+  serif: Lato
+  mono: Fira Code
 comark: true
 duration: 20min
+transition: slide-left
 colorSchema: dark
+wakeLock: true
 ---
 
 <!--
