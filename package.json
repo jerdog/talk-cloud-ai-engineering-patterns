@@ -15,6 +15,7 @@
     "vue": "^3.5.33"
   },
   "devDependencies": {
+    "playwright-chromium": "^1.62.1",
     "@slidev/parser": "^52.18.0",
     "slidev-theme-wwt": "github:jerdog/slidev-wwt-template"
   }

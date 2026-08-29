@@ -6,7 +6,6 @@ theme: wwt
 # PACING: Running short? Expand Section V with a concrete MCP example — walk through one server (e.g. Slack) plugging into Claude Desktop, Cursor, AgentCore, Foundry, and Agent Platform unmodified. The portability story lands harder concrete.
 # PACING: CUT CANDIDATES if the clock is tight, in priority order: slide 4 (second stats slide), slide 14 (Standards), slide 20 (trace-based eval), slide 24 (why RAG exists), slide 40 (A2A + AP2), slide 44 (cost reality).
 # DELIVERY: Don't read these notes verbatim on stage — they're scaffolding. The talk should sound like you, not like a script.
-
 title: "Stop Dreaming, Start Engineering"
 subtitle: "Cloud Patterns for Production AI"
 info: |
@@ -23,10 +22,15 @@ presenter: true
 layout: cover
 drawings:
   persist: false
+fonts:
+  sans: Inter
+  serif: Lato
+  mono: Fira Code
 comark: true
 duration: 45min
 transition: slide-left
 colorSchema: dark
+wakeLock: true
 ---
 
 <!--
@@ -49,14 +53,12 @@ Ask it slowly, and mean it: "How many of you have built an AI demo that wowed ev
 ---
 # DELIVERY: Hold 30s. Say the number slow, then repeat it once. Don't editorialize — the number does the work.
 # SOURCE: RAND interviewed 65 experienced data scientists/engineers (5+ years building AI/ML) — qualitative research, not a large-N study. RAND's own language is "by some estimates" — they're citing an external estimate, not a number they computed. If challenged on precision, lead with that honestly: round numbers from real methodology beat fake precision.
-layout: default
+layout: stats
+stats:
+  - value: "80%+"
+    label: "of AI projects fail — twice the rate of conventional IT"
+    caption: "RAND, 2024. 65 practitioner interviews — citing an outside estimate."
 ---
-
-<Stat
-  value="80%+"
-  label="of AI projects fail — twice the rate of conventional IT"
-  caption="RAND, 2024. 65 practitioner interviews — citing an outside estimate."
-/>
 
 <!--
 Here's what the data says. RAND interviewed 65 experienced data scientists and engineers with at least five years building AI and ML models. Their conclusion: by some estimates, more than 80 percent of AI projects fail — twice the failure rate of conventional IT projects that don't involve AI. That's RAND citing the estimate, not a number they computed themselves from a huge sample, and it's worth being precise about that on stage. It's qualitative research. What it lacks in decimal precision it makes up for in depth — sixty-five practitioners across company sizes and industries, all converging on the same five root causes.
