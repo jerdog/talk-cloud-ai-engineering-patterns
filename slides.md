@@ -48,7 +48,7 @@ layout: quote
 dark: true
 ---
 
-How many of you have shipped an AI demo that quietly died?
+How many of you have shipped an AI demo, feature, or app that quietly died?
 
 <!--
 Ask it slowly, and mean it: "How many of you have built an AI demo that wowed everyone in the room, got the green light from leadership, and then quietly died six months later in a pull request nobody merged?" Pause. Watch hands. Then acknowledge it plainly - "Yeah. Me too. More than once." - before moving on.
@@ -67,7 +67,7 @@ layout: default
 />
 
 <!--
-Here's what the data says. RAND interviewed 65 experienced data scientists and engineers with at least five years building AI and ML models. Their conclusion: by some estimates, more than 80 percent of AI projects fail - twice the failure rate of conventional IT projects that don't involve AI. That's RAND citing the estimate, not a number they computed themselves from a huge sample, and it's worth being precise about that on stage. It's qualitative research. What it lacks in decimal precision it makes up for in depth - sixty-five practitioners across company sizes and industries, all converging on the same five root causes.
+Here's what the data says. RAND interviewed 65 experienced data scientists and engineers with at least five years building AI and ML models. Their conclusion: more than 80 percent of AI projects fail - twice the failure rate of conventional IT projects that don't involve AI. That's RAND citing the estimate, not a number they computed themselves from a huge sample. It's qualitative research. What it lacks in decimal precision it makes up for in depth - sixty-five practitioners across company sizes and industries, all converging on the same five root causes.
 -->
 
 ---
@@ -102,7 +102,7 @@ dark: true
 AI is software with new rules.
 
 <!--
-AI is software. But it's software with rules that break old assumptions. The output is non-deterministic. Behavior changes over time without you touching the code, because the data changed. The cost model is upside down - inference, not compute, is your bill. And regulation isn't optional anymore. Good news, and this is the actual point of the talk: the three major cloud providers, along with an emerging set of open standards, have spent the last few years codifying what works. When you look at AWS, GCP, and Azure side by side today, they've converged - same patterns, same protocols, same models available across all three. That convergence is the signal.
+AI is software. But it's software with rules that break old assumptions. The output is non-deterministic. Behavior changes over time without you touching the code, because the data changed. The cost model is upside down - inference, not compute, is your bill. And regulation isn't optional anymore. Good news: the three major cloud providers, along with an emerging set of open standards, have spent the last few years codifying what works. When you look at AWS, GCP, and Azure side by side today, they've converged - same patterns, same protocols, same models available across all three. That convergence is the signal.
 -->
 
 ---
@@ -157,7 +157,7 @@ boxes:
 <p text-sm opacity-70 mt-4>AWS ML Lens · GCP AI/ML Framework · Azure Well-Architected AI workload guidance</p>
 
 <!--
-Every cloud provider has now published an AI-specific lens on top of their Well-Architected Framework - six pillars: operational excellence, security, reliability, performance efficiency, cost optimization, sustainability. Sustainability is worth a beat - training and inference at scale have real environmental cost, and it's now measurable and reportable. Here's what I find interesting: AWS, GCP, and Azure arrived at these pillars independently. They're documenting the same lessons learned across millions of production AI workloads. When three competitors converge on the same six pillars, that's not coincidence. That's emerging engineering truth.
+Every cloud provider has now published an AI-specific lens on top of their Well-Architected Framework - six pillars: operational excellence, security, reliability, performance efficiency, cost optimization, sustainability. Sustainability is worth a beat - training and inference at scale have real environmental cost, and it's now measurable and reportable. Here's what I find interesting: AWS, GCP, and Azure likely arrived at these pillars independently. They're documenting the same lessons learned across millions of production AI workloads. When three competitors converge on the same six pillars, that's not coincidence. That's emerging engineering truth.
 -->
 
 ---
