@@ -33,9 +33,6 @@ colorSchema: dark
 wakeLock: true
 ---
 
-<!--
-Hold 15s while people settle. Don't read the title out loud — say hello, thank them for coming.
--->
 
 ---
 # DELIVERY: Hold 20–30s after the question. Wait for actual hands before continuing.
@@ -44,16 +41,19 @@ layout: quote
 dark: true
 ---
 
-How many of you have shipped an AI demo that quietly died?
+How many of you have shipped an AI demo, feature, or new application that quietly died?
 
 <!--
-Ask it slowly, and mean it: "How many of you have built an AI demo that wowed everyone in the room, got the green light from leadership, and then quietly died six months later in a pull request nobody merged?" Pause. Watch hands. Then acknowledge it plainly — "Yeah. Me too. More than once." — before moving on.
+How many of you have built an AI demo, feature, or new application that wowed everyone in the room, got the green light from leadership, and then quietly died six months later in a pull request nobody merged?
+
+You're not alone.
 -->
 
 ---
 # DELIVERY: Hold 30s. Say the number slow, then repeat it once. Don't editorialize — the number does the work.
 # SOURCE: RAND interviewed 65 experienced data scientists/engineers (5+ years building AI/ML) — qualitative research, not a large-N study. RAND's own language is "by some estimates" — they're citing an external estimate, not a number they computed. If challenged on precision, lead with that honestly: round numbers from real methodology beat fake precision.
 layout: stats
+title: ""
 stats:
   - value: "80%+"
     label: "of AI projects fail — twice the rate of conventional IT"
@@ -61,7 +61,7 @@ stats:
 ---
 
 <!--
-Here's what the data says. RAND interviewed 65 experienced data scientists and engineers with at least five years building AI and ML models. Their conclusion: by some estimates, more than 80 percent of AI projects fail — twice the failure rate of conventional IT projects that don't involve AI. That's RAND citing the estimate, not a number they computed themselves from a huge sample, and it's worth being precise about that on stage. It's qualitative research. What it lacks in decimal precision it makes up for in depth — sixty-five practitioners across company sizes and industries, all converging on the same five root causes.
+Here's what the data says. RAND interviewed 65 experienced data scientists and engineers with at least five years building AI and ML models. Their conclusion: by some estimates, more than 80 percent of AI projects fail — twice the failure rate of conventional IT projects that don't involve AI. That's RAND citing the estimate, not a number they computed themselves from a huge sample. It's qualitative research - all converging on the same five root causes.
 -->
 
 ---
@@ -73,14 +73,19 @@ title: "Two more studies"
 stats:
   - value: "95%"
     label: "of GenAI pilots show no measurable P&L return"
-    caption: "The GenAI Divide. MIT Project NANDA, 2025. Preliminary, not peer-reviewed."
+    caption: "The GenAI Divide. MIT Project NANDA, 2025. Preliminary, not
+      peer-reviewed."
   - value: "28%"
     label: "of AI use cases in infrastructure & operations meet ROI expectations"
     caption: "Gartner, April 2026. 782 I&O leaders."
 ---
 
 <!--
-[click]MIT's Project NANDA dug specifically into generative AI. Their report, "The GenAI Divide," is explicitly preliminary and hasn't been peer-reviewed — worth flagging if anyone asks. Their finding: 95 percent of generative AI pilots deliver no measurable P&L return. Only about 5 percent capture value at scale. [click]Gartner's April 2026 report surveyed 782 infrastructure and operations leaders and found only 28 percent of AI use cases in I&O fully succeed and meet ROI expectations, with 20 percent failing outright. Three independent studies. Same conclusion.
+MIT's Project NANDA dug specifically into generative AI. Their report, "The GenAI Divide," while explicitly preliminary and not (at the last I checked) peer-reviewed found:
+
+[click]95 percent of generative AI pilots deliver no measurable P&L return. Only about 5 percent capture value at scale.
+
+[click]Gartner's April 2026 report found only 28% of AI use cases fully succeed and meet ROI expectations, with 20% failing outright. Three independent studies. Same conclusion.
 -->
 
 ---
@@ -103,7 +108,31 @@ right:
 ---
 
 <!--
-When you actually read the post-mortems, it's almost never the model that failed. The model usually worked fine. What failed was everything around the model — the data pipeline broke, nobody knew when accuracy drifted, costs ballooned past what the business case predicted, security said no the week before launch, or, most commonly, the team lost focus on the original problem three sprints in and never got it back. We've been telling ourselves a story that goes: "the model works in the notebook, so we're 90 percent done." When the model works in the notebook, you are maybe 10 percent done. The other 90 percent is the engineering we've spent thirty years figuring out for every other kind of software, plus some new rules for the parts that are different.
+When you actually read the post-mortems, it's almost never the model that failed - it usually worked fine. The failure was everything else around the model: the data pipeline broke, nobody drew the boundary for the identity, observability came after things broke, nobody modeled the costs, accuracy looked great on the original set, it "worked" in the demo, etc.
+-->
+
+---
+layout: comparison
+title: "The story we tell ourselves vs. the reality"
+left:
+  title: "The story..."
+  points:
+    - "model works in the notebook!"
+    - "we're 90% done!!!!!"
+right:
+  title: "The reality..."
+  points:
+    - "When the model works in the notebook, you're maybe 10% done."
+---
+
+<v-clicks>
+
+> The other 90% is the engineering we've spent 30 years figuring out for every other kind of software + some nrew rules for the parts that are different.
+
+</v-clicks>
+
+<!--
+We've been telling ourselves a story that goes: "the model works in the notebook, so we're 90 percent done." When the model works in the notebook, you are maybe 10 percent done. [click]The other 90 percent is the engineering we've spent thirty years figuring out for every other kind of software, plus some new rules for the parts that are different.
 -->
 
 ---
@@ -115,7 +144,7 @@ dark: true
 AI is software with new rules.
 
 <!--
-AI is software. But it's software with rules that break old assumptions. The output is non-deterministic. Behavior changes over time without you touching the code, because the data changed. The cost model is upside down — inference, not compute, is your bill. And regulation isn't optional anymore. Good news, and this is the actual point of the talk: the three major cloud providers, along with an emerging set of open standards, have spent the last few years codifying what works. When you look at AWS, GCP, and Azure side by side today, they've converged — same patterns, same protocols, same models available across all three. That convergence is the signal.
+AI is software. But it's software with rules that break old assumptions. The output is non-deterministic. Behavior changes over time without you touching the code, because the data changed. The cost model is upside down — inference, not compute, is your bill. And regulation isn't optional anymore. Good news: the three major cloud providers, along with an emerging set of open standards, have spent the last few years codifying what works. When you look at AWS, GCP, and Azure side by side today, they've converged — same patterns, same protocols, same models available across all three. That convergence is the signal.
 -->
 
 ---
@@ -143,7 +172,9 @@ flowchart LR
 </div>
 
 <!--
-Traditional software has a release. You ship version 1.2, and unless someone changes the code, it behaves the same tomorrow as it does today. AI systems don't work that way — the world changes around your model, your users change, your data distribution shifts. A model that was 94 percent accurate at launch can be 78 percent accurate six months later, and no one touched the code. That single fact reshapes everything. The six phases are business goal identification, ML problem framing, data processing, model development, deployment, monitoring — I'm not going to dwell on each. What I want to highlight is the arrow you don't always see: monitoring back to data processing and problem framing. This isn't waterfall. It isn't even normal agile. It's a feedback loop with a clock on it. The moment you stop iterating, your model starts decaying.
+Traditional software has a release. You ship version 1.2, and unless someone changes the code, it behaves the same tomorrow as it does today. AI systems don't work that way — the world changes around your model, your users change, your data distribution shifts. A model that was 94% accurate at launch can be 78% accurate six months later, and no one touched the code. That single fact reshapes everything. These 6 phases are business goal identification, ML problem framing, data processing, model development, deployment, monitoring.
+
+There's an arrow you don't always see: monitoring back to data processing and problem framing. This isn't waterfall. It isn't even normal agile. It's a feedback loop with a clock on it. The moment you stop iterating, your model starts decaying.
 -->
 
 ---
@@ -163,7 +194,7 @@ events:
 
 
 <!--
-Phase one, business goal identification, is the phase nobody takes seriously enough. I see teams skip this constantly — they jump to "let's fine-tune a model" before anyone has written down what success looks like. [click]A project starts with "reduce customer complaints by 30 percent." [click]Three months later the team is debating vector database choice and [click]nobody has mentioned complaints in weeks. The original problem disappeared from the agenda. This is one of RAND's five root causes almost verbatim: stakeholders misunderstand or miscommunicate what problem the AI is actually supposed to solve, so the team ships something impressive that nobody asked for.
+Phase one, business goal identification, is the phase nobody takes seriously enough. We see teams skip this constantly — they jump to "let's fine-tune a model" before anyone has written down what success looks like. [click]A project starts with "reduce customer complaints by 30 percent." [click]Three months later the team is debating vector database choice and [click]nobody has mentioned complaints in weeks. The original problem disappeared from the agenda. This is one of RAND's five root causes almost verbatim: stakeholders misunderstand or miscommunicate what problem the AI is actually supposed to solve, so the team ships something impressive that nobody asked for.
 -->
 
 ---
@@ -211,7 +242,7 @@ title: "Convergence"
 <p text-sm opacity-70 mt-4 text-center>AWS ML Lens · GCP AI/ML Framework · Azure Well-Architected AI workload guidance</p>
 
 <!--
-Here's what I find interesting: AWS, GCP, and Azure arrived at these pillars independently. They're documenting the same lessons learned across millions of production AI workloads. When three competitors converge on the same six pillars, that's not coincidence. That's emerging engineering truth.
+Here's what I find interesting: AWS, GCP, and Azure likely arrived at these pillars independently. They're documenting the same lessons learned across millions of production AI workloads. When three competitors converge on the same six pillars, that's not coincidence. That's emerging engineering truth.
 -->
 
 ---
@@ -363,7 +394,7 @@ flowchart LR
 - Build 3 — comparison and diff, labeled
 
 <!--
-Highest-value technical slide of the talk. You deploy the new model alongside the old one. Real production traffic gets mirrored to the new model — same requests, same load. But the new model's responses are never returned to the user. They get logged. You compare distributions, latencies, error rates. You catch the disasters before they touch a single customer. Spend extra time on this. The number of production AI incidents I've seen that would have been caught by a two-week shadow run is depressing. If the venue projector is bad, skip the clicks and present the finished diagram — it's static either way, no risk.
+Highest-value technical slide of the talk. You deploy the new model alongside the old one. Real production traffic gets mirrored to the new model — same requests, same load. But the new model's responses are never returned to the user. They get logged. You compare distributions, latencies, error rates. You catch the disasters before they touch a single customer. Spend extra time on this. The number of production AI incidents that would have been caught by a two-week shadow run is depressing.
 -->
 
 ---
@@ -552,7 +583,9 @@ Classic RAG is still a good answer more often than teams think.
 <p text-sm opacity-70 mt-6>Per each platform's current product docs — Bedrock, Foundry IQ, RAG Engine</p>
 
 <!--
-Classic RAG wins on latency and cost. Agentic retrieval wins on complex, conversational, multi-source queries. Pick deliberately. A surprising number of teams default to agentic because it sounds more sophisticated, then wonder why their latency is four seconds and their inference bill tripled. If a single vector search answers your question, do a single vector search. Don't over-engineer.
+Classic RAG wins on latency and cost. Agentic retrieval wins on complex, conversational, multi-source queries. Pick deliberately.
+
+A surprising number of teams default to agentic because it sounds more sophisticated, then wonder why their latency is four seconds and their inference bill tripled. If a single vector search answers your question, do a single vector search. Don't over-engineer.
 -->
 
 ---
@@ -610,12 +643,11 @@ right:
 **They're not competing.** MCP doesn't replace RAG — it's often how you <em>expose</em> a RAG pipeline to an agent. Your vector search doesn't disappear. It gets wrapped as an MCP server instead of hardcoded into your app.
 
 <!--
-This slide exists because someone will ask this question, and it's better to get ahead of it than get caught flat-footed mid-Q&A.
-Walk the two columns side by side, in order, don't rush. The audience needs to actually register that these solve different problems before you deliver the punchline at the bottom.
-RAG is a pipeline: chunking, embedding, vector search, prompt injection. It solves "the model doesn't know about my data." MCP is a protocol: a standardized way for an AI application to call external tools and data sources. It solves "I don't want to write a custom integration for every tool." Different layers of the stack entirely — this isn't a competition, it's apples and oranges that happen to get used in the same sentence a lot lately.
-Land on the callout box: MCP doesn't replace RAG, it's often how you expose a RAG pipeline to an agent. The vector search doesn't disappear when you adopt MCP — it gets wrapped as an MCP server instead of hardcoded into your app. The embedding model, the vector store, the chunking strategy — none of that is MCP's job. MCP is the wire format, not the retrieval logic.
-If you want a concrete, current example and have time: Bedrock's Managed Knowledge Base and Foundry IQ, both covered a few slides back, are increasingly exposed AS MCP servers. The agent calls "search_knowledge_base" as one tool among several. That's the honest version of the relationship — convergence, not replacement.
-Good natural pause point for a question if the room seems unsure. Better to resolve it here than have it nag at people through the rest of the agent section.
+RAG is a pipeline: chunking, embedding, vector search, prompt injection. It solves "the model doesn't know about my data."
+
+MCP is a protocol: a standardized way for an AI application to call external tools and data sources. It solves "I don't want to write a custom integration for every tool." Different layers of the stack entirely.
+
+MCP doesn't replace RAG, it's often how you expose a RAG pipeline to an agent. The vector search doesn't disappear when you adopt MCP — it gets wrapped as an MCP server instead of hardcoded into your app. The embedding model, the vector store, the chunking strategy — none of that is MCP's job. MCP is the wire format, not the retrieval logic.
 -->
 
 ---
@@ -721,7 +753,7 @@ graph TD
 <p text-sm opacity-70 mt-4>Model Context Protocol. Anthropic, November 2024. Open standard.</p>
 
 <!--
-Anthropic released MCP as an open standard in November 2024. It's a protocol for connecting AI agents to tools and data. Think of it as USB-C for agents — pause after "agents," the metaphor lands better with space around it. Before MCP, every integration between an agent and a tool was custom code. Different agent frameworks meant different integration code. Every vendor's tool ecosystem was walled. What this means architecturally: you can build one MCP server for, say, your internal ticketing system, and it works in Claude Desktop, Cursor, VS Code, AgentCore, Foundry Agent Service, and Agent Platform without changing anything. Tools became portable. That's the shift. Every vendor lock-in argument you used to make about agent frameworks is now weaker than it was a year ago.
+Anthropic released MCP as an open standard in November 2024. It's a protocol for connecting AI agents to tools and data. Think of it as USB-C for agents — Before MCP, every integration between an agent and a tool was custom code. Different agent frameworks meant different integration code. Every vendor's tool ecosystem was walled. What this means architecturally: you can build one MCP server for, say, your internal ticketing system, and it works in Claude Desktop, Cursor, VS Code, etc. Tools became portable. That's the shift. Every vendor lock-in argument you used to make about agent frameworks is now weaker than it was a year ago.
 -->
 
 ---
@@ -770,7 +802,12 @@ boxes:
 <p text-sm opacity-70 mt-4>Magentic-One: Microsoft Research</p>
 
 <!--
-Sequential / Prompt Chaining: agents run in a predefined linear order. Predictable, debuggable, limited flexibility — great for structured pipelines. Routing / Handoff: a supervisor agent looks at the input and dispatches to a specialist. The supervisor is your single point of failure — make it small and reliable. Parallel / Concurrent: multiple agents work simultaneously, results get aggregated. Reduces latency for parallel work, gives you diverse perspectives. ReAct — Reason and Act — is the workhorse. The agent thinks, takes an action, observes the result, thinks again. Almost every tool-using agent you've heard of is some flavor of ReAct. Hierarchical / Magentic: a manager agent decomposes an ambiguous task into subtasks and delegates — Microsoft's Magentic-One is one implementation. Don't reach for it unless you need it; the manager adds latency and failure surface. Evaluator / Reflect-Refine: one agent generates, another critiques, loop until quality thresholds are met. Significantly improves output quality, significantly increases cost — use it where quality beats latency.
+  - "Sequential" : "Structured pipelines"
+  - "Routing" : "Clear category dispatch"
+  - "Parallel" : "Latency reduction, diverse perspectives"
+  - "ReAct" : "Tool use, iterative" **the workhorse**
+  - "Hierarchical (Magentic)" : "Open-ended tasks"
+  - "Evaluator" : "Quality-critical outputs"
 -->
 
 ---
@@ -789,7 +826,14 @@ boxes:
 <p text-sm opacity-70 mt-2 text-center>AWS Summit New York, June 2026 · Google Cloud Next '26 · Microsoft Build 2026</p>
 
 <!--
-AWS Bedrock AgentCore went GA in October 2025. AgentCore Policy, AgentCore Evaluations, and the managed harness all reached GA at AWS Summit New York on June 17, 2026. It's framework-agnostic — bring your LangGraph, CrewAI, Claude Agent SDK, custom Python. Policies are written in Cedar and run outside your agent code. The managed harness lets you spin up an agent with two API calls, CreateHarness and InvokeHarness, specifying a model, prompt, and tools — no orchestration code needed. AWS has also talked publicly about AgentCore Payments — Coinbase and Stripe integration that would let agents autonomously pay for APIs and services — but double-check the exact GA status closer to your delivery date, since it hasn't been independently reconfirmed. GCP's Gemini Enterprise Agent Platform was announced at Cloud Next in late April 2026. Vertex AI as a standalone product brand was retired — Google was blunt about it: "all Vertex AI services and roadmap evolutions will be delivered exclusively through Agent Platform." Agent Studio for visual design. ADK 2.0 for code-first. Agent Runtime with seven-day execution windows. Skill Registry for tool discovery. Memory Bank profiles now GA. Microsoft Agent Framework 1.0 went GA in April, consolidating Semantic Kernel and AutoGen into one open-source framework. Foundry Agent Service is GA. Hosted agents were a target, not a confirmed shipment, as of Build 2026 — say "targeted for" unless you can confirm the actual GA announcement closer to delivery — with per-session sandboxed compute once it lands. Microsoft now natively supports GitHub Copilot SDK and Claude Agent SDK alongside their own framework, and agents built in Foundry can publish directly to Microsoft 365 Copilot and Teams. Bottom line: all three are GA. Pick on other criteria.
+  - title: "AWS AgentCore"
+    detail: "GA Oct 2025. Policy, Evaluations, and managed harness all GA June 17, 2026 (AWS Summit NY). Payments (Coinbase, Stripe) announced."
+  - title: "GCP Agent Platform"
+    detail: "Announced Cloud Next '26. Vertex retired. Skill Registry. Memory Bank profiles GA."
+  - title: "Microsoft Foundry"
+    detail: "Agent Framework 1.0 GA. Foundry Agent Service GA. Hosted Agents targeted GA early July 2026. M365 publishing."
+
+Bottom line: all three are GA. Pick on other criteria.
 -->
 
 ---
@@ -833,7 +877,9 @@ td {
 </style>
 
 <!--
-Claude went GA on Microsoft Foundry June 29, 2026 — confirmed by Microsoft's own devblog and Anthropic's announcement. Look at what's now true: Claude Opus 4.5, 4.8, and 5 are in GCP's Model Garden. GPT variants are in Azure and increasingly available via Bedrock. LangGraph and CrewAI run on every platform. MCP tools work across all runtimes. The patterns are portable. The models are portable. The tools are portable. So what does that leave? Governance. Identity. Data gravity. Integration with the rest of your stack. That's what actually differentiates the platforms today. If someone tells you to pick a cloud "because it has the best agents," push back — they all have agents. Pick a cloud because its governance and integration model matches your operational reality.
+Look at what's now true: Claude Opus 4.5, 4.8, and 5 are in GCP's Model Garden. GPT variants are in Azure and increasingly available via Bedrock. LangGraph and CrewAI run on every platform. MCP tools work across all runtimes. The patterns are portable. The models are portable. The tools are portable.
+
+So what does that leave? Governance. Identity. Data gravity. Integration with the rest of your stack. That's what actually differentiates the platforms today. If someone tells you to pick a cloud "because it has the best agents," push back — they all have agents. Pick a cloud because its governance and integration model matches your operational reality
 -->
 
 ---
@@ -899,7 +945,15 @@ right:
 ---
 
 <!--
-Identity Passthrough — Microsoft Foundry plus Fabric. The agent inherits the human user's identity. When the agent goes to query your data lake, it passes through the user's Entra ID token. The data layer enforces permissions exactly as it would for the human. The agent literally cannot see data the user couldn't see. Elegant for human-in-the-loop workflows — the constraint is structural, not policy-based, so you can't accidentally misconfigure it open. Cryptographic Runtime Isolation — GCP's Agent Identity — solves a different problem. What if there's no active human session? What if the agent is running autonomously in the background? You can't pass through an identity that doesn't exist, so GCP uses SPIFFE-based identity, bound to the container runtime lifecycle, with mTLS and certificate-bound tokens. The identity is the agent itself, cryptographically tied to where it's running — if someone steals the token, it doesn't work outside that runtime. Built for autonomous workflows. You'll probably need both. Human-driven assistant? Identity passthrough. Overnight batch agent processing invoices? Runtime isolation. Pick the right one for the use case.
+"Identity passthrough"
+- "Microsoft Foundry + Fabric"
+- "User's Entra token flows through the agent"
+- "Agent inherits the human"
+
+"Runtime isolation"
+- "GCP Agent Identity"
+- "SPIFFE cert bound to container, mTLS everywhere"
+- "Agent has its own identity, tied to where it runs"
 -->
 
 ---
@@ -923,7 +977,10 @@ Datadog · Honeycomb · Grafana · LangChain · CrewAI · AutoGen
 <p text-sm opacity-70>As of July 2026 — OpenTelemetry GenAI semantic conventions, Development status</p>
 
 <!--
-For a long time, agent observability was a mess — every vendor had their own dashboard, their own trace format, their own attribute names. That's changing, though it's worth being precise about how far along it is. No GenAI span, event, metric, or attribute is marked Stable — the conventions moved to their own dedicated repository in 2026 and remain in Development status there, meaning the schema itself is still allowed to change. What is true: broad practical tooling support exists today. That combination — adopt early, expect some churn — is exactly the position most emerging infrastructure standards go through on the way to boring. Practical implication: you can now instrument your agents once and export to any backend. If a platform doesn't emit OTel GenAI conventions, that's a red flag — it means you're locking into their observability stack. Ask the question before you commit.
+For a long time, agent observability was a mess — every vendor had their own dashboard, their own trace format, their own attribute names. That's changing.
+
+What is still true: broad practical tooling support exists today. That combination — adopt early, expect some churn — is exactly the position most emerging infrastructure standards go through on the way to boring. 
+Practical implication: you can now instrument your agents once and export to any backend. If a platform doesn't emit OTel GenAI conventions, that's a red flag — it means you're locking into their observability stack. Ask the question before you commit.
 -->
 
 ---
@@ -945,7 +1002,10 @@ right:
 ---
 
 <!--
-The cost model has flipped. Compute used to be your bill. For AI workloads, inference is your bill. And the multi-model reality is now the norm, not the exception. Databricks' State of AI Agents research found 78 percent of companies use two or more LLM families in production, and the share running three or more jumped from 36 to 59 percent in a single quarter last year. GPT variants for one thing, Claude for another, Gemini for something else. Latency-aware routing between cheap and smart models is table stakes — AWS Bedrock has Intelligent Prompt Routing, GCP and Azure have similar primitives. Use them. Quick reality check while we're on cost: if your data lives in S3, the friction of moving it to GCP usually outweighs whatever advantage Gemini gives you. If your analytics already run on BigQuery, fighting that to use SageMaker is going to hurt. Architect for where your data already is — most platform decisions are actually data decisions in disguise.
+The cost model has flipped. Compute used to be your bill. 
+Now for AI workloads, inference is your bill. And the multi-model reality is now the norm, not the exception. Databricks' State of AI Agents research found 78 percent of companies use two or more LLM families in production, and the share running three or more jumped from 36 to 59 percent in a single quarter last year. GPT variants for one thing, Claude for another, Gemini for something else. Latency-aware routing between cheap and smart models is table stakes — AWS Bedrock has Intelligent Prompt Routing, GCP and Azure have similar primitives. Use them. 
+
+Architect for where your data already is — most platform decisions are actually data decisions in disguise.
 -->
 
 ---
@@ -957,7 +1017,8 @@ dark: true
 Platform choice matters more than model choice.
 
 <!--
-In 2026, platform choice matters more than model choice for most workloads. The frontier models have converged closely on most public benchmarks — I don't have a clean, rigorously sourced number for exactly how close, so take that as directional rather than a stat to repeat verbatim. Platform gaps on governance, compliance, and integration are the ones I'd bet money are larger and more durable. If you're spending months benchmarking models and days on platform decisions, you're probably optimizing the wrong axis. And underneath all of it: data gravity is the unspoken decision driver. Most platform decisions are actually data decisions in disguise.
+In 2026, platform choice matters more than model choice for most workloads. The frontier models have converged closely on most public benchmarks. 
+If you're spending months benchmarking models and days on platform decisions, you're probably optimizing the wrong axis. And underneath all of it: data gravity is the unspoken decision driver. Most platform decisions are actually data decisions in disguise.
 -->
 
 ---
@@ -985,7 +1046,11 @@ title: "The nine questions"
 </div>
 
 <!--
-One, lifecycle: are your feedback loops actually wired up? When monitoring detects a problem, does that information make it back to the data and framing phases, or does it die in a dashboard nobody looks at? Two, deployment: do you have a shadow stage before any new model touches real users? If not, that's your highest-leverage fix. Three, retrieval: if you're doing RAG, classic or agentic — did you choose deliberately, or did you default to whatever the tutorial used? Four, orchestration: if you're using agents, which pattern? Can you draw it on a whiteboard in under thirty seconds? If not, it's too complex and you don't fully understand it yet. Five, interoperability: are your tools exposed via MCP, so they work across frameworks and providers, or are they hard-wired into one runtime, one framework, one vendor? MCP portability is the single biggest lock-in insurance policy you can buy right now. Six, identity: can your agent ever see data that its calling user couldn't see? If the answer isn't "structurally, no" — meaning the architecture enforces it, not a policy document — fix that before anything else. Seven, observability: are you emitting OpenTelemetry GenAI semantic conventions? If not, you're locking into a vendor's observability stack — probably a decision you didn't mean to make. Eight, regulation: if you serve European users, and again, most of you do, are you Article 50-ready? That means transparency disclosures and content labeling, specifically. The bigger risk-classification and human-in-the-loop obligations have more runway now, to December 2027, but that's an argument for starting the data lineage work now, not for ignoring it. Nine, cost and portfolio: do you know your per-inference cost? Do you have a routing strategy? Are you locked into one frontier model when the top models have converged closely on most benchmarks, or do you have a diversified portfolio that lets you route by workload? None of these questions are exotic. None require you to invent new patterns. The clouds have already done the hard work of codifying what production AI looks like. Open standards — MCP, A2A, OpenTelemetry GenAI, NIST AI RMF — have codified what portable AI looks like. Regulators have codified what accountable AI looks like. The teams that succeed aren't the ones with the most novel architecture. They're the ones who apply what already works, consistently, with discipline. Hold this slide the whole time you're walking through them — don't advance until you've hit all nine.
+There are a number of different questions to ask when analyzing your Production AI. A few important ones: 
+One, lifecycle: are your feedback loops actually wired up? When monitoring detects a problem, does that information make it back to the data and framing phases, or does it die in a dashboard nobody looks at? Two, deployment: do you have a shadow stage before any new model touches real users? If not, that's your highest-leverage fix. Four, orchestration: if you're using agents, which pattern? Can you draw it on a whiteboard in under thirty seconds? If not, it's too complex and you don't fully understand it yet. 
+Eight, regulation: if you serve European users, and again, most of you do, are you Article 50-ready? That means transparency disclosures and content labeling, specifically. The bigger risk-classification and human-in-the-loop obligations have more runway now, to December 2027, but that's an argument for starting the data lineage work now, not for ignoring it. 
+
+None of these questions are exotic. None require you to invent new patterns. The clouds have already done the hard work of codifying what production AI looks like. Open standards — MCP, A2A, OpenTelemetry GenAI, NIST AI RMF — have codified what portable AI looks like. Regulators have codified what accountable AI looks like. The teams that succeed aren't the ones with the most novel architecture. They're the ones who apply what already works, consistently, with discipline. Hold this slide the whole time you're walking through them — don't advance until you've hit all nine.
 -->
 
 ---
@@ -1029,4 +1094,3 @@ Anticipated questions to be ready for:
 - "What if I'm not in Europe? Does the EU AI Act matter?" Yes, if you have any European users or process European data. Also, US state-level AI regulations are following the same patterns. The compliance work you do for the EU AI Act is largely reusable.
 - "How do I convince my leadership to invest in this?" RAND, MIT NANDA, Gartner all agree. The 80 percent failure rate is real, and it's a leadership problem more than a technical one. Reframe: doing this work is what separates the 20 percent that succeed from the 80 percent that don't.
 -->
-

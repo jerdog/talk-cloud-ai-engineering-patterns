@@ -5,3 +5,53 @@
 .wwt-monogram-mark:not(.wwt-footer__monogram) {
   display: none;
 }
+
+/* Opt-in modifier for Slidev's built-in `two-cols-header` layout: centers the
+   full-width header row across the slide instead of flush left.
+   Apply per slide via `layoutClass: wwt-header-center` — NOT `class:`, which
+   that layout forwards to its columns only, never to the header or the root.
+
+   The `*` half of the selector is load-bearing. The theme's
+   `.slidev-layout *  { text-align: left }` matches the heading element
+   directly, and a direct declaration beats an inherited one — so setting
+   text-align on `.col-header` alone leaves the heading left-aligned. */
+.wwt-header-center .col-header,
+.wwt-header-center .col-header * {
+  text-align: center;
+}
+
+/* Opt-in modifier for Slidev's built-in `two-cols-header` layout: vertically
+   centers each column's content in the middle grid row. That layout sets
+   `align-self` on `.col-bottom` only, so `.col-left`/`.col-right` inherit the
+   default `stretch` — the boxes fill the 1fr row but content top-flows.
+
+   Apply per slide via `layoutClass`, alongside `wwt-header-center`:
+
+     ---
+     layout: two-cols-header
+     layoutClass: wwt-header-center wwt-cols-center
+     ---
+
+   `min-width: 0` is load-bearing, not defensive. `repeat(2, 1fr)` means
+   `minmax(auto, 1fr)`, and that `auto` floor is the item's min-content
+   contribution — so a single image wider than half the slide inflates its own
+   column and squeezes the other, silently breaking the 50/50 split. Zeroing
+   the floor restores equal tracks. `max-width: 100%` on the image is then
+   required to stop it overflowing the now-narrower track. */
+.wwt-cols-center .col-left,
+.wwt-cols-center .col-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.wwt-cols-center .col-left img,
+.wwt-cols-center .col-right img {
+  max-width: 100%;
+  height: auto;
+}
+
+.wwt-quote__body p {
+    font-size: 1em;
+}
