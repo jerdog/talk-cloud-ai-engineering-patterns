@@ -89,6 +89,26 @@ MIT's Project NANDA dug specifically into generative AI. Their report, "The GenA
 -->
 
 ---
+# About the speakers slide
+layout: speaker
+speakers:
+  - name: Jeremy Meiss
+    role: Tech Solution Architect
+    company: WWT
+    photo: /images/jeremy-meiss.png
+    orgs:
+      - name: DevOpsDays KC organizer
+      - name: CommunityDays KC organizer
+      - name: CDF Ambassador 2025-26
+---
+
+---
+layout: image
+image: /images/KCDC_2026_Sponsors_Slide.png
+---
+
+
+---
 # ANCHOR: "The model is 10 percent. The other 90 percent is what killed the project."
 layout: comparison
 title: "Where the failure actually is"
@@ -219,7 +239,8 @@ boxes:
 <p text-sm opacity-70 mt-8>AWS ML Lens · GCP AI/ML Framework · Azure Well-Architected AI workload guidance</p>
 
 <!--
-Every cloud provider has now published an AI-specific lens on top of their Well-Architected Framework — six pillars: operational excellence, security, reliability, performance efficiency, cost optimization, sustainability. Sustainability is worth a beat. Training and inference at scale have real environmental cost. It's now measurable and reportable.
+Every cloud provider has now published an AI-specific lens on top of their Well-Architected Framework — six pillars: operational excellence, security, reliability, performance efficiency, cost optimization, sustainability. 
+Training and inference at scale have real environmental cost. It's now measurable and reportable.
 -->
 
 ---
@@ -394,7 +415,7 @@ flowchart LR
 - Build 3 — comparison and diff, labeled
 
 <!--
-Highest-value technical slide of the talk. You deploy the new model alongside the old one. Real production traffic gets mirrored to the new model — same requests, same load. But the new model's responses are never returned to the user. They get logged. You compare distributions, latencies, error rates. You catch the disasters before they touch a single customer. Spend extra time on this. The number of production AI incidents that would have been caught by a two-week shadow run is depressing.
+Highest-value technical slide of the talk. You deploy the new model alongside the old one. Real production traffic gets mirrored to the new model — same requests, same load. But the new model's responses are never returned to the user. They get logged. You compare distributions, latencies, error rates. You catch the disasters before they touch a single customer. **The number of production AI incidents that would have been caught by a two-week shadow run is depressing.**
 -->
 
 ---
@@ -979,7 +1000,7 @@ Datadog · Honeycomb · Grafana · LangChain · CrewAI · AutoGen
 <!--
 For a long time, agent observability was a mess — every vendor had their own dashboard, their own trace format, their own attribute names. That's changing.
 
-What is still true: broad practical tooling support exists today. That combination — adopt early, expect some churn — is exactly the position most emerging infrastructure standards go through on the way to boring. 
+What is still true: broad practical tooling support exists today. That combination — adopt early, expect some churn — is exactly the position most emerging infrastructure standards go through on the way to boring.
 Practical implication: you can now instrument your agents once and export to any backend. If a platform doesn't emit OTel GenAI conventions, that's a red flag — it means you're locking into their observability stack. Ask the question before you commit.
 -->
 
@@ -1002,8 +1023,8 @@ right:
 ---
 
 <!--
-The cost model has flipped. Compute used to be your bill. 
-Now for AI workloads, inference is your bill. And the multi-model reality is now the norm, not the exception. Databricks' State of AI Agents research found 78 percent of companies use two or more LLM families in production, and the share running three or more jumped from 36 to 59 percent in a single quarter last year. GPT variants for one thing, Claude for another, Gemini for something else. Latency-aware routing between cheap and smart models is table stakes — AWS Bedrock has Intelligent Prompt Routing, GCP and Azure have similar primitives. Use them. 
+The cost model has flipped. Compute used to be your bill.
+Now for AI workloads, inference is your bill. And the multi-model reality is now the norm, not the exception. Databricks' State of AI Agents research found 78 percent of companies use two or more LLM families in production, and the share running three or more jumped from 36 to 59 percent in a single quarter last year. GPT variants for one thing, Claude for another, Gemini for something else. Latency-aware routing between cheap and smart models is table stakes — AWS Bedrock has Intelligent Prompt Routing, GCP and Azure have similar primitives. Use them.
 
 Architect for where your data already is — most platform decisions are actually data decisions in disguise.
 -->
@@ -1017,7 +1038,7 @@ dark: true
 Platform choice matters more than model choice.
 
 <!--
-In 2026, platform choice matters more than model choice for most workloads. The frontier models have converged closely on most public benchmarks. 
+In 2026, platform choice matters more than model choice for most workloads. The frontier models have converged closely on most public benchmarks.
 If you're spending months benchmarking models and days on platform decisions, you're probably optimizing the wrong axis. And underneath all of it: data gravity is the unspoken decision driver. Most platform decisions are actually data decisions in disguise.
 -->
 
@@ -1046,9 +1067,9 @@ title: "The nine questions"
 </div>
 
 <!--
-There are a number of different questions to ask when analyzing your Production AI. A few important ones: 
-One, lifecycle: are your feedback loops actually wired up? When monitoring detects a problem, does that information make it back to the data and framing phases, or does it die in a dashboard nobody looks at? Two, deployment: do you have a shadow stage before any new model touches real users? If not, that's your highest-leverage fix. Four, orchestration: if you're using agents, which pattern? Can you draw it on a whiteboard in under thirty seconds? If not, it's too complex and you don't fully understand it yet. 
-Eight, regulation: if you serve European users, and again, most of you do, are you Article 50-ready? That means transparency disclosures and content labeling, specifically. The bigger risk-classification and human-in-the-loop obligations have more runway now, to December 2027, but that's an argument for starting the data lineage work now, not for ignoring it. 
+There are a number of different questions to ask when analyzing your Production AI. A few important ones:
+One, lifecycle: are your feedback loops actually wired up? When monitoring detects a problem, does that information make it back to the data and framing phases, or does it die in a dashboard nobody looks at? Two, deployment: do you have a shadow stage before any new model touches real users? If not, that's your highest-leverage fix. Four, orchestration: if you're using agents, which pattern? Can you draw it on a whiteboard in under thirty seconds? If not, it's too complex and you don't fully understand it yet.
+Eight, regulation: if you serve European users, and again, most of you do, are you Article 50-ready? That means transparency disclosures and content labeling, specifically. The bigger risk-classification and human-in-the-loop obligations have more runway now, to December 2027, but that's an argument for starting the data lineage work now, not for ignoring it.
 
 None of these questions are exotic. None require you to invent new patterns. The clouds have already done the hard work of codifying what production AI looks like. Open standards — MCP, A2A, OpenTelemetry GenAI, NIST AI RMF — have codified what portable AI looks like. Regulators have codified what accountable AI looks like. The teams that succeed aren't the ones with the most novel architecture. They're the ones who apply what already works, consistently, with discipline. Hold this slide the whole time you're walking through them — don't advance until you've hit all nine.
 -->
@@ -1079,7 +1100,7 @@ speakers:
       linkedin: /in/jeremy-meiss
       github: jerdog
       website: jmeiss.me
-slidesUrl: https://github.com/jerdog/talk-cloud-ai-engineering-patterns
+slidesUrl: https://speaking.jmeiss.me
 ---
 
 
@@ -1094,3 +1115,26 @@ Anticipated questions to be ready for:
 - "What if I'm not in Europe? Does the EU AI Act matter?" Yes, if you have any European users or process European data. Also, US state-level AI regulations are following the same patterns. The compliance work you do for the EU AI Act is largely reusable.
 - "How do I convince my leadership to invest in this?" RAND, MIT NANDA, Gartner all agree. The 80 percent failure rate is real, and it's a leadership problem more than a technical one. Reframe: doing this work is what separates the 20 percent that succeed from the 80 percent that don't.
 -->
+
+---
+layout: image
+image: /images/SessionFeedbackQrCode.png
+backgroundSize: 20%
+hideBadge: true
+---
+
+## "Stop Dreaming, Start Engineering: Cloud Patterns for Production AI"
+
+### Jeremy Meiss
+
+<style>
+.slidev-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+.slidev-layout h2 {
+  text-align: center !important;
+}
+</style>
