@@ -239,7 +239,7 @@ boxes:
 <p text-sm opacity-70 mt-8>AWS ML Lens · GCP AI/ML Framework · Azure Well-Architected AI workload guidance</p>
 
 <!--
-Every cloud provider has now published an AI-specific lens on top of their Well-Architected Framework — six pillars: operational excellence, security, reliability, performance efficiency, cost optimization, sustainability. 
+Every cloud provider has now published an AI-specific lens on top of their Well-Architected Framework — six pillars: operational excellence, security, reliability, performance efficiency, cost optimization, sustainability.
 Training and inference at scale have real environmental cost. It's now measurable and reportable.
 -->
 
@@ -314,7 +314,7 @@ Delayed 16 months — Digital Omnibus, May 2026
 <p text-sm opacity-70 mt-8>Source: EU AI Act (Regulation (EU) 2024/1689); Digital Omnibus package, May 2026</p>
 
 <!--
-In May 2026, the EU reached a provisional deal called the Digital Omnibus that pushed the high-risk regime — the parts requiring conformity assessment and risk classification — back sixteen months, to December 2027. But August 2, 2026, still mattered: that's when Article 50 transparency obligations became enforceable — AI-generated content labeling, chatbot disclosure, deepfake labeling — and when the Commission gained penalty enforcement power over general-purpose AI providers. Fines for Article 50 violations top out at €15 million or 3 percent of global revenue. The bigger number you may have heard, €35 million or 7 percent, is real, but it's the Act's top tier, reserved for prohibited practices, not the transparency rules that landed that day. Article 50 has been enforceable <WeeksSince date="2026-08-02" /> now — the deadline was real, it was just narrower than the headlines made it sound, and the bigger obligation just moved. Human-in-the-loop checkpoints and formal risk classification got sixteen months of runway via the Digital Omnibus, to December 2027. That's not a reason to ignore them — it's more time to build them properly instead of bolting them on under deadline pressure. Know one real Article 50 enforcement case to reference — check the news the week before you deliver.
+In May 2026, the EU reached a provisional deal called the Digital Omnibus that pushed the high-risk impact — the parts requiring conformity assessment and risk classification — back sixteen months, to December 2027. But August 2, 2026, still mattered: that's when Article 50 transparency obligations became enforceable — AI-generated content labeling, chatbot disclosure, deepfake labeling — and when the Commission gained penalty enforcement power over general-purpose AI providers. Fines for Article 50 violations top out at €15 million or 3 percent of global revenue. Article 50 has been enforceable <WeeksSince date="2026-08-02" /> now — the deadline was real, it was just narrower than the headlines made it sound, and the bigger obligation just moved. Human-in-the-loop checkpoints and formal risk classification got sixteen months of runway via the Digital Omnibus, to December 2027. That's not a reason to ignore them — it's more time to build them properly instead of bolting them on under deadline pressure. Know one real Article 50 enforcement case to reference — check the news the week before you deliver.
 -->
 
 ---
@@ -374,7 +374,7 @@ Traditional blue-green deployment assumes deterministic behavior. You test the n
 ---
 # DELIVERY: Hold 45s. "Read while I narrate" slide — narrate the paragraph below, don't just point at the tiles.
 layout: process
-title: "Four patterns, one slide"
+title: "Four patterns for safe rollouts"
 steps:
   - title: "Blue-Green"
     detail: "Fast rollback, trust your validation"
@@ -415,7 +415,7 @@ flowchart LR
 - Build 3 — comparison and diff, labeled
 
 <!--
-Highest-value technical slide of the talk. You deploy the new model alongside the old one. Real production traffic gets mirrored to the new model — same requests, same load. But the new model's responses are never returned to the user. They get logged. You compare distributions, latencies, error rates. You catch the disasters before they touch a single customer. **The number of production AI incidents that would have been caught by a two-week shadow run is depressing.**
+Shadow deployments are very important now: You deploy the new model alongside the old one. Real production traffic gets mirrored to the new model — same requests, same load. But the new model's responses are never returned to the user. They get logged. You compare distributions, latencies, error rates. You catch the disasters before they touch a single customer. **The number of production AI incidents that would have been caught by a two-week shadow run is depressing.**
 -->
 
 ---
@@ -460,7 +460,7 @@ flowchart LR
 <p text-sm opacity-70 mt-4>AgentCore Evaluations (GA June 17, 2026, AWS Summit New York) · Foundry trace-based evaluation · Agent Evaluation on Agent Platform</p>
 
 <!--
-There's a genuine capability shift worth mentioning. Microsoft, AWS, and GCP now let you grade real production traces from any framework or platform. Foundry has trace-based evaluation across external and hosted agents. AgentCore Evaluations reached GA June 17, 2026, at AWS Summit New York. Agent Platform has Agent Evaluation running against live conversations. Instead of building golden datasets by hand, you're taking your shadow-deployment traces and using them as your eval set. That turns observation into signal automatically. If you haven't looked at this yet, it's worth an afternoon.
+There's a genuine capability shift worth mentioning. Microsoft, AWS, and GCP now let you grade real production traces from any framework or platform. Foundry has trace-based evaluation across external and hosted agents. AgentCore Evaluations is now GA. Agent Platform has Agent Evaluation running against live conversations. Instead of building golden datasets by hand, you're taking your shadow-deployment traces and using them as your eval set. That turns observation into signal automatically. If you haven't looked at this yet, it's worth an afternoon.
 -->
 
 ---
@@ -477,7 +477,7 @@ steps:
 ---
 
 <!--
-[click]Shadow, [click]then canary, [click]then full cutover — it's a sequence, not a menu. I've watched teams skip shadow because "we're already running canary." Those are different things solving different problems. Shadow tells you whether the model is broken. Canary tells you whether users tolerate it. You need both answers.
+[click]Shadow, [click]then canary, [click]then full cutover — it's a sequence, not a menu. Teams often skip shadow because "we're already running canary." Those are different things solving different problems. Shadow tells you whether the model is broken. Canary tells you whether users tolerate it. You need both answers.
 -->
 
 ---
@@ -562,7 +562,7 @@ right:
 ---
 
 <!--
-All three clouds shipped managed knowledge platforms that hide most of the plumbing. Amazon Bedrock's Managed Knowledge Base launched at NY Summit in June — it handles ingestion, parsing, retrieval, and agentic retrieval with native connectors to S3, SharePoint, Confluence, Google Drive. Microsoft's Foundry IQ went GA at Build 2026 as their broader knowledge plane — serverless retrieval, Web IQ for grounded web search, agentic retrieval built in. GCP has the RAG Engine sitting inside the Agent Platform. Implication: you probably shouldn't be hand-rolling the four-pipeline architecture anymore. If you're on greenfield, use the managed offerings. If you're already running custom RAG, evaluate whether the managed offering is now good enough — often it is, and it kills a lot of maintenance burden.
+All three clouds shipped managed knowledge platforms that hide most of the plumbing. Amazon Bedrock's Managed Knowledge Base handles ingestion, parsing, retrieval, and agentic retrieval with native connectors to S3, SharePoint, Confluence, Google Drive. Microsoft's Foundry IQ is part of their broader knowledge plane — serverless retrieval, Web IQ for grounded web search, agentic retrieval built in. GCP has the RAG Engine sitting inside the Agent Platform. Implication: you probably shouldn't be hand-rolling the four-pipeline architecture anymore. If you're on greenfield, use the managed offerings. If you're already running custom RAG, evaluate whether the managed offering is now good enough — often it is, and it kills a lot of maintenance burden.
 -->
 
 ---
@@ -653,14 +653,6 @@ right:
     - "Says nothing about retrieval logic itself"
 ---
 
-<!--
-*How does a model get grounded in information it wasn't trained on?*
--->
-
-<!--
-*How does an AI app talk to any external tool or data source, the same way, every time?*
--->
-
 **They're not competing.** MCP doesn't replace RAG — it's often how you <em>expose</em> a RAG pipeline to an agent. Your vector search doesn't disappear. It gets wrapped as an MCP server instead of hardcoded into your app.
 
 <!--
@@ -724,7 +716,7 @@ title: "New failure modes"
 <p mt-3 v-click>Your orchestration pattern decides which of these you fight.</p>
 
 <!--
-Once you have a loop, you have new failure modes. The agent can loop forever. It can call the wrong tool. It can hallucinate a tool that was never registered. It can call the right tool with the wrong argument. It can get a correct result back and interpret it incorrectly. Let all five sit on screen before you say anything — the pile-up is the point. Then the two lines: [click]none of this existed in classic request-response AI, and the [click]orchestration pattern you pick is what decides which of these you have to defend against. That sets up the six patterns three slides from here.
+Once you have a loop, you have new failure modes. The agent can loop forever. It can call the wrong tool. It can hallucinate a tool that was never registered. It can call the right tool with the wrong argument. It can get a correct result back and interpret it incorrectly. [click]none of this existed in classic request-response AI, and the [click]orchestration pattern you pick is what decides which of these you have to defend against.
 -->
 
 ---
@@ -823,12 +815,12 @@ boxes:
 <p text-sm opacity-70 mt-4>Magentic-One: Microsoft Research</p>
 
 <!--
-  - "Sequential" : "Structured pipelines"
-  - "Routing" : "Clear category dispatch"
-  - "Parallel" : "Latency reduction, diverse perspectives"
-  - "ReAct" : "Tool use, iterative" **the workhorse**
-  - "Hierarchical (Magentic)" : "Open-ended tasks"
-  - "Evaluator" : "Quality-critical outputs"
+- "Sequential" : "Structured pipelines"
+- "Routing" : "Clear category dispatch"
+- "Parallel" : "Latency reduction, diverse perspectives"
+- "ReAct" : "Tool use, iterative" **the workhorse**
+- "Hierarchical (Magentic)" : "Open-ended tasks"
+- "Evaluator" : "Quality-critical outputs"
 -->
 
 ---
@@ -847,12 +839,12 @@ boxes:
 <p text-sm opacity-70 mt-2 text-center>AWS Summit New York, June 2026 · Google Cloud Next '26 · Microsoft Build 2026</p>
 
 <!--
-  - title: "AWS AgentCore"
-    detail: "GA Oct 2025. Policy, Evaluations, and managed harness all GA June 17, 2026 (AWS Summit NY). Payments (Coinbase, Stripe) announced."
-  - title: "GCP Agent Platform"
-    detail: "Announced Cloud Next '26. Vertex retired. Skill Registry. Memory Bank profiles GA."
-  - title: "Microsoft Foundry"
-    detail: "Agent Framework 1.0 GA. Foundry Agent Service GA. Hosted Agents targeted GA early July 2026. M365 publishing."
+- "AWS AgentCore"
+  - detail: "Policy, Evaluations, and managed harness all GA. Payments announced."
+- "GCP Agent Platform"
+  - detail: "Announced Cloud Next '26. Vertex retired. Skill Registry. Memory Bank profiles GA."
+- "Microsoft Foundry"
+  - detail: "Agent Framework 1.0, Foundry Agent Service GA. Hosted Agents, and M365 publishing."
 
 Bottom line: all three are GA. Pick on other criteria.
 -->
@@ -1068,10 +1060,12 @@ title: "The nine questions"
 
 <!--
 There are a number of different questions to ask when analyzing your Production AI. A few important ones:
-One, lifecycle: are your feedback loops actually wired up? When monitoring detects a problem, does that information make it back to the data and framing phases, or does it die in a dashboard nobody looks at? Two, deployment: do you have a shadow stage before any new model touches real users? If not, that's your highest-leverage fix. Four, orchestration: if you're using agents, which pattern? Can you draw it on a whiteboard in under thirty seconds? If not, it's too complex and you don't fully understand it yet.
-Eight, regulation: if you serve European users, and again, most of you do, are you Article 50-ready? That means transparency disclosures and content labeling, specifically. The bigger risk-classification and human-in-the-loop obligations have more runway now, to December 2027, but that's an argument for starting the data lineage work now, not for ignoring it.
+- One, lifecycle: are your feedback loops actually wired up? When monitoring detects a problem, does that information make it back to the data and framing phases, or does it die in a dashboard nobody looks at?
+- Two, deployment: do you have a shadow stage before any new model touches real users? If not, that's your highest-leverage fix.
+- Four, orchestration: if you're using agents, which pattern? Can you draw it on a whiteboard in under thirty seconds? If not, it's too complex and you don't fully understand it yet.
+- Eight, regulation: if you serve European users, and again, most of you do, are you Article 50-ready? That means transparency disclosures and content labeling, specifically. The bigger risk-classification and human-in-the-loop obligations have more runway now, to December 2027, but that's an argument for starting the data lineage work now, not for ignoring it.
 
-None of these questions are exotic. None require you to invent new patterns. The clouds have already done the hard work of codifying what production AI looks like. Open standards — MCP, A2A, OpenTelemetry GenAI, NIST AI RMF — have codified what portable AI looks like. Regulators have codified what accountable AI looks like. The teams that succeed aren't the ones with the most novel architecture. They're the ones who apply what already works, consistently, with discipline. Hold this slide the whole time you're walking through them — don't advance until you've hit all nine.
+None of these questions are exotic. None require you to invent new patterns. The clouds have already done the hard work of codifying what production AI looks like. Open standards — MCP, A2A, OpenTelemetry GenAI, NIST AI RMF — have codified what portable AI looks like. Regulators have codified what accountable AI looks like. The teams that succeed aren't the ones with the most novel architecture. They're the ones who apply what already works, consistently, with discipline.
 -->
 
 ---
